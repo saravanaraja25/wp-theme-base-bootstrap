@@ -38,8 +38,41 @@ function register_my_menus() {
   register_nav_menus(
     array(
       'primary-menu' => "Primary Menu",
+      'mobile-menu' =>"Mobile Menu"
      )
    );
  }
 add_action( 'init', 'register_my_menus' );
 
+//creating custom post type
+
+function portfolio_post_type(){
+  $args=array(
+      'labels'=>array(
+          'name'=>'Portfolios',
+          'singular_name'=>'Portfolio'
+      ),
+      'public'=>true,
+      'has_archive'=>true,
+      'menu_icon'=>'dashicons-admin-site-alt3',
+      'supports'=>array('title','editor','thumbnail','custom-fields'),
+
+  );
+  register_post_type('portfolio',$args);
+}
+add_action( 'init','portfolio_post_type' );
+
+
+//widgets custom
+function sidebar_widgets(){
+  register_sidebar(array(
+      'name'=>'Right Side Widget ',
+      'id'=>'right-side-1',
+      'before_title'=>'<h2 class="widget-title">',
+      'after_title'=>'</h2>'
+  ));
+  
+}
+
+
+add_action('widgets_init','sidebar_widgets');

@@ -17,7 +17,6 @@ __webpack_require__.r(__webpack_exports__);
 
 window.$ = __webpack_provided_window_dot_jQuery = (jquery__WEBPACK_IMPORTED_MODULE_0___default());
 
-console.log(jquery__WEBPACK_IMPORTED_MODULE_0___default()("body"));
 
 /***/ }),
 
